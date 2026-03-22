@@ -25,6 +25,8 @@ function love.load()
     player.emo = "" -- for the emotations
     player.canjump = true
 
+    time_to_win = 232 -- in secounds
+
     -- rooms
     function make_starting() -- makes the starting area
         top_wall = world:newRectangleCollider(200,0,600,100)
@@ -94,6 +96,7 @@ function love.load()
         -----------------------------------------------
         if where == "Up" then
             if player.canjump == true then
+                player.canjump = false
                 jump()
                 jump()
                 jump()
@@ -112,6 +115,9 @@ function love.load()
                 jump()
                 jump()
                 jump()
+                timer.after(1, function()
+                player.canjump = true
+                end)
             end
         end
 
