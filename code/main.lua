@@ -66,7 +66,7 @@ function love.load()
 
         if where == "Right" then -- checks where
 
-            player.x = player.x + player.speed -- movess
+            player.hitbox:applyAngularImpulse(player.speed)
 
             --pizza tower like. read it and you will get it
             if player.speedyness == 0 then
@@ -108,24 +108,7 @@ function love.load()
         if where == "Up" then
             if player.canjump == true then
                 player.canjump = false
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
-                jump()
+                player.hitbox:applyAngularImpulse(5000)
                 timer.after(1, function()
                 player.canjump = true
                 end)
@@ -171,9 +154,7 @@ function love.update(dt)
         love.event.quit()
     end
 
-    player.hitbox:destroy()
-    player.hitbox = world:newRectangleCollider(player.x,player.y,70,70)
-    player.hitbox:setCollisionClass('Player')
+    
 
     if player.hitbox:enter('Walls') then
         print("hiT1")
@@ -193,6 +174,4 @@ function love.draw()
         love.graphics.print("speed " .. player.speed,10,40)
         love.graphics.print("speedy " .. player.speedyness,10,60)
     end
-
-    camera:lookAt(player.x, player.y)
 end
