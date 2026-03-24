@@ -8,3 +8,6 @@ timer = require("hump/timer") -- for timing
 fire = require("hump/signal") -- used to fire (run) functions when it's time for them to shine
 debugmode = true -- a flag if you want to config
 
+function love.load()
+    print("loading")
+end
