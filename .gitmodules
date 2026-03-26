@@ -1,6 +1,0 @@
-[submodule "code/hump"]
-	path = code/hump
-	url = https://github.com/HDictus/hump.git
-[submodule "code/windfield"]
-	path = code/windfield
-	url = https://github.com/a327ex/windfield.git
